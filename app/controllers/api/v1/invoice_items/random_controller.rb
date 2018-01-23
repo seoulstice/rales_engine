@@ -1,4 +1,4 @@
-class Api::V1::InvoiceItems::SearchController < ApplicationController
+class Api::V1::InvoiceItems::RandomController < ApplicationController
 
   def show
     render json: InvoiceItem.sample

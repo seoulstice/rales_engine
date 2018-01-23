@@ -1,4 +1,4 @@
-class Api::V1::Merchants::SearchController < ApplicationController
+lass Api::V1::Merchants::SearchController < ApplicationController
 
   def show
     if params[:id]

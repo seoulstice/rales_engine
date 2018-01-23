@@ -8,6 +8,4 @@ class Api::V1::MerchantsController < ApplicationController
     render json: Merchant.find(params[:id])
   end
 
-
-
 end

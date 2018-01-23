@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Merchants API" do
-  context "HTTP GET with Query Parameters" do
+  context "HTTP GET with Name Query" do
     it "returns single Merchant by name search" do
       merchant1 = create(:merchant)
       merchant2 = create(:merchant)

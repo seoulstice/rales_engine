@@ -33,6 +33,9 @@ Rails.application.routes.draw do
           get '/find' => :show
           get '/find_all' => :index
         end
+        controller :random do
+          get '/random' => :show
+        end
       end
       resources :items, only: [:index, :show]
 
@@ -41,6 +44,9 @@ Rails.application.routes.draw do
           get '/find' => :show
           get '/find_all' => :index
         end
+        controller :random do
+          get '/random' => :show
+        end
       end
       resources :invoices, only: [:index, :show]
 
@@ -48,6 +54,9 @@ Rails.application.routes.draw do
         controller :search do
           get '/find' => :show
           get '/find_all' => :index
+        end
+        controller :random do
+          get '/random' => :show
         end
       end
       resources :invoice_items, only: [:index, :show]

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
           get '/find' => :show
           get '/find_all' => :index
         end
+        controller :random do
+          get '/random' => :show
+        end
       end
 
       namespace :transactions do
@@ -15,12 +18,18 @@ Rails.application.routes.draw do
           get '/find' => :show
           get '/find_all' => :index
         end
+        controller :random do
+          get '/random' => :show
+        end
       end
 
       namespace :customers do
         controller :search do
           get '/find' => :show
           get '/find_all' => :index
+        end
+        controller :random do
+          get '/random' => :show
         end
       end
 

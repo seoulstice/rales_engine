@@ -12,9 +12,9 @@ class Api::V1::Items::SearchController < ApplicationController
     elsif params[:merchant_id]
       render json: Item.where(merchant_id: params[:merchant_id])
     elsif params[:created_at]
-      render json: Item.where(created_at: params[:created_at])
+      render json: Item.where(created_at: params[:created_at].to_datetime)
     elsif params[:update_at]
-      render json: Item.where(updated_at: params[:updated_at])
+      render json: Item.where(updated_at: params[:updated_at].to_datetime)
     end
   end
 
@@ -30,16 +30,16 @@ class Api::V1::Items::SearchController < ApplicationController
     elsif params[:merchant_id]
       render json: Item.find_by(merchant_id: params[:merchant_id])
     elsif params[:created_at]
-      render json: Item.find_by(created_at: params[:created_at])
+      render json: Item.find_by(created_at: params[:created_at].to_datetime)
     elsif params[:update_at]
-      render json: Item.find_by(updated_at: params[:updated_at])
+      render json: Item.find_by(updated_at: params[:updated_at].to_datetime)
     end
   end
 
   private
 
     def item_params
-      params.require(:item).permit(:id, :name, :description, :created_at, :update_at)
+      params.require(:item).permit(:id, :name, :description, :merchant_id, :unit_price, :created_at, :update_at)
     end
 
 end

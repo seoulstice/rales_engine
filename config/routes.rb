@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       namespace :items do
         controller :search do
           get '/find' => :show
-          get '/find_all' => :show
+          get '/find_all' => :index
         end
       end
       resources :items, only: [:index, :show]
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       namespace :invoices do
         controller :search do
           get '/find' => :show
-          get '/find_all' => :show
+          get '/find_all' => :index
         end
       end
       resources :invoices, only: [:index, :show]
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       namespace :invoice_items do
         controller :search do
           get '/find' => :show
-          get '/find_all' => :show
+          get '/find_all' => :index
         end
       end
       resources :invoice_items, only: [:index, :show]

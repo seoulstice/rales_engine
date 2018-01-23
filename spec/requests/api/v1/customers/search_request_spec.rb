@@ -4,7 +4,7 @@ describe "Customer API" do
   context "HTTP GET with Name Query" do
     it "returns single Customer by name search" do
       customer1, customer2 = create_list(:customer, 2)
-binding.pry
+
       get "/api/v1/customers/find?name=#{customer1.name}"
 
       expect(response).to be_successful
@@ -27,4 +27,6 @@ binding.pry
       expect(customers.class).to eq(Array)
     end
   end
+
+  # context "HTTP"
 end

@@ -1,8 +1,8 @@
-lass Api::V1::Merchants::SearchController < ApplicationController
+class Api::V1::Merchants::SearchController < ApplicationController
 
   def show
     if params[:id]
-      render json: Merchant.find(id: params[:id])
+      render json: Merchant.find(params[:id])
     elsif params[:name]
       render json: Merchant.find_by(name: params[:name])
     elsif params[:created_at]
@@ -14,7 +14,7 @@ lass Api::V1::Merchants::SearchController < ApplicationController
 
   def index
     if params[:id]
-      render json: Merchant.find(id: params[:id])
+      render json: Merchant.where(id: params[:id])
     elsif params[:name]
       render json: Merchant.where(name: params[:name])
     elsif params[:created_at]

@@ -19,10 +19,10 @@ describe "Customers API" do
 
       get "/api/v1/customers/#{id}"
 
-      item = JSON.parse(response.body)
+      item = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
-      expect(item["id"]).to eq(id)
+      expect(item[:id]).to eq(id)
     end
   end
 end

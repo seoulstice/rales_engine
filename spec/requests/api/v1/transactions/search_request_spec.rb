@@ -5,7 +5,7 @@ describe "Transactions API" do
     it "returns single Transaction by ID search" do
       transaction1 = create(:transaction)
       transaction2 = create(:transaction)
-      # binding.pry
+
       get "/api/v1/transactions/find?id=#{transaction1.id}"
 
       expect(response).to be_successful
@@ -17,7 +17,7 @@ describe "Transactions API" do
 
     it "returns multiple Transactions by ID search" do
       transaction1, transaction2, transaction3, transaction4 = create_list(:transaction, 4)
-      # binding.pry
+
       get "/api/v1/transactions/find_all?id=#{transaction1.id}"
 
       expect(response).to be_successful

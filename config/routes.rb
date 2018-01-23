@@ -17,6 +17,13 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :customers do
+        controller :search do
+          get '/find' => :show
+          get '/find_all' => :index
+        end
+      end
+
       resources :merchants, only: [:index, :show]
       resources :transactions, only: [:index, :show]
       resources :customers, only: [:index, :show]

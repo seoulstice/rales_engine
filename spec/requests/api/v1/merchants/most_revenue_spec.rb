@@ -7,7 +7,8 @@ describe "Merchants API" do
       merchant2 = create(:merchant)
       merchant3 = create(:merchant)
 
-      
+      invoice1 = create(:invoice, merchant: merchant)
+
 
     end
   end

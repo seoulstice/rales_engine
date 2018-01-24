@@ -9,4 +9,15 @@ class Customer < ApplicationRecord
       .merge(Transaction.unsuccessful)
       .where("merchants.id = #{merchant_id}")
   end
+
+  def self.favorite_customer(merchant_id)
+    select("customers.*, count(transactions.id) as count_transactions")
+      .joins(:merchants, :transactions)
+      .merge(Transaction.successful)
+      .where("merchants.id = #{merchant_id}")
+      .group(:id)
+      .order("count_transactions DESC")
+      .limit(1)
+      .first
+  end
 end

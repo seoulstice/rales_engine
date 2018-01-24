@@ -49,6 +49,9 @@ Rails.application.routes.draw do
         controller :random do
           get '/random' => :show
         end
+        controller :most_revenue do
+          get '/most_revenue' => :show
+        end
       end
       resources :items, only: [:index, :show]
 

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       namespace :merchants do
+        controller :revenue do
+          get '/:id/revenue' => :show
+        end
         controller :search do
           get '/find' => :show
           get '/find_all' => :index

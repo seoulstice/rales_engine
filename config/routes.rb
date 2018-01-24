@@ -11,6 +11,9 @@ Rails.application.routes.draw do
         controller :customers_with_pending_invoices do
           get '/:id/customers_with_pending_invoices' => :show
         end
+        controller :favorite_customer do
+          get '/:id/favorite_customer' => :show
+        end
         controller :search do
           get '/find' => :show
           get '/find_all' => :index

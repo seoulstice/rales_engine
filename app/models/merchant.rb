@@ -10,4 +10,8 @@ class Merchant < ApplicationRecord
     .order("revenue DESC")
     .limit(quantity)
   end
+
+  def revenue
+    .joins
+  end
 end

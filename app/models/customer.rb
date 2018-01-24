@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
   def self.customers_with_pending_invoices(merchant_id)
     joins(:merchants, :transactions)
-      .where("transactions.result != 'success'")
-      .where("merchants.id = 1")
+      .merge(Transaction.unsuccessful)
+      .where("merchants.id = #{merchant_id}")
   end
 end

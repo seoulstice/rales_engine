@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       namespace :merchants do
+
         controller :revenue do
           get '/:id/revenue' => :show
+        end
+        controller :customers_with_pending_invoices do
+          get '/:id/customers_with_pending_invoices' => :show
         end
         controller :search do
           get '/find' => :show

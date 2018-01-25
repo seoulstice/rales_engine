@@ -25,6 +25,9 @@ Rails.application.routes.draw do
         controller :most_revenue do
           get '/most_revenue' => :show
         end
+        controller :most_items do
+          get 'most_items' => :show
+        end
 
       end
 

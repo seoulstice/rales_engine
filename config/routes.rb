@@ -104,6 +104,23 @@ Rails.application.routes.draw do
         controller :best_day do
           get '/:id/best_day' => :show
         end
+        controller :transactions do
+          get '/:id/transactions' => :show
+        end
+        controller :items do
+          get '/:id/items' => :show
+        end
+        controller :invoice_items do
+          get '/:id/invoice_items' => :show
+        end
+        controller :customer do
+          get '/:id/customer' => :show
+        end
+        controller :merchant do
+          get '/:id/merchant' => :show
+        end
+
+
       end
       resources :invoices, only: [:index, :show]
 

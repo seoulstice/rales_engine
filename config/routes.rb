@@ -107,6 +107,10 @@ Rails.application.routes.draw do
         controller :transactions do
           get '/:id/transactions' => :show
         end
+        controller :items do
+          get '/:id/items' => :show
+        end
+
       end
       resources :invoices, only: [:index, :show]
 

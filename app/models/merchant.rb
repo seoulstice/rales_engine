@@ -35,6 +35,15 @@ class Merchant < ApplicationRecord
       .sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
+  def self.most_items(merchant_count)
+    select("merchants.*, sum(invoice_items.quantity) AS items_sold")
+      .joins(invoices: [:invoice_items])
+      .group(:id)
+      .order("items_sold DESC")
+      .limit(merchant_count)
+
+  end
+
 end
 
 # Merchant.joins(invoices: [:invoice_items, :transactions]).merge(Transaction.successful).where(invoices: {created_at: date}).sum("invoice_items.quantity * invoice_items.unit_price")

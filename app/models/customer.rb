@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
                 EXCEPT SELECT c.* FROM customers c
                 JOIN invoices i ON c.id = i.customer_id
                 JOIN transactions t ON t.invoice_id = i.id
-                WHERE i.merchant_id = #{merchant_id} AND t.result = 'success'")
+                WHERE i.merchant_id = #{merchant_id} AND t.result = 'success' ORDER BY 1")
   end
 
   def self.favorite_customer(merchant_id)

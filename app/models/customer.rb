@@ -1,18 +1,16 @@
 class Customer < ApplicationRecord
   has_many :invoices
   has_many :merchants, through: :invoices
-  has_many :transactions, through: :invoices
-
 
   def self.customers_with_pending_invoices(merchant_id)
-    joins(:merchants, :transactions)
+    joins(:merchants, invoices: [:transactions])
       .merge(Transaction.unsuccessful)
       .where("merchants.id = #{merchant_id}")
   end
 
   def self.favorite_customer(merchant_id)
     select("customers.*, count(transactions.id) as count_transactions")
-      .joins(:merchants, :transactions)
+      .joins(:merchants, invoices: [:transactions])
       .merge(Transaction.successful)
       .where("merchants.id = #{merchant_id}")
       .group(:id)

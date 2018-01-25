@@ -4,6 +4,6 @@ class RevenueSerializer < ActiveModel::Serializer
   attributes :revenue
 
   def revenue
-    number_with_precision(object.revenue/100, precision: 2)
+    number_with_precision(object/100, precision: 2)
   end
 end

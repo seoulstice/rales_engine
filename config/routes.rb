@@ -10,7 +10,10 @@ Rails.application.routes.draw do
           get '/revenue' => :index
         end
         controller :items do
-          get ':id/items' => :show
+          get '/:id/items' => :show
+        end
+        controller :invoices do
+          get '/:id/invoices' => :show
         end
         controller :customers_with_pending_invoices do
           get '/:id/customers_with_pending_invoices' => :show

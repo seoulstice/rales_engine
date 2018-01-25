@@ -1,11 +1,11 @@
 class Api::V1::InvoiceItems::SearchController < ApplicationController
 
   def index
-    render json: InvoiceItem.where(invoice_item_params)
+    render json: InvoiceItem.where(invoice_item_params).order(:id)
   end
 
   def show
-    render json: InvoiceItem.find_by(invoice_item_params)
+    render json: InvoiceItem.find_by(invoice_item_params).order(:id).limit(1).first
   end
 
   private

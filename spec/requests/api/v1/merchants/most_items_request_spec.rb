@@ -26,7 +26,6 @@ describe "Merchants API" do
       expect(response).to be_successful
 
       merchants = JSON.parse(response.body, symbolize_names: true)
-# binding.pry
       expect(merchants.count).to eq(2)
 
       expect(merchants[0][:id]).to eq(@merchant1.id)

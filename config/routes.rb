@@ -113,7 +113,9 @@ Rails.application.routes.draw do
         controller :invoice_items do
           get '/:id/invoice_items' => :show
         end
-
+        controller :customer do
+          get '/:id/customer' => :show
+        end
 
       end
       resources :invoices, only: [:index, :show]

@@ -110,6 +110,10 @@ Rails.application.routes.draw do
         controller :items do
           get '/:id/items' => :show
         end
+        controller :invoice_items do
+          get '/:id/invoice_items' => :show
+        end
+
 
       end
       resources :invoices, only: [:index, :show]

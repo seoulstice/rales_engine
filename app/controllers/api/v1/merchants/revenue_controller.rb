@@ -1,7 +1,7 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
 
   def index
-    render json: Merchant.all_revenue_by_date(revenue_params[:date]), serializer: RevenueSerializer
+    render json: Merchant.all_revenue_by_date(revenue_params[:date]), serializer: TotalRevenueSerializer
   end
 
   def show
@@ -15,9 +15,6 @@ class Api::V1::Merchants::RevenueController < ApplicationController
   private
 
   def revenue_params
-    if params[:date]
-      params[:date] = params[:date].to_datetime
-    end
     params.permit(:id, :date)
   end
 

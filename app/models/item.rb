@@ -4,10 +4,18 @@ class Item < ApplicationRecord
   has_many :invoices, through: :invoice_items
 
   def self.most_revenue(quantity)
-    select("items.*, sum(invoice_items.quantity*invoice_items.unit_price) AS revenue")
-      .joins(:invoice_items)
+    joins(:invoice_items)
+      .select("items.*, sum(invoice_items.quantity*invoice_items.unit_price) AS revenue")
       .group(:id)
       .order("revenue DESC")
+      .limit(quantity.to_i)
+  end
+
+  def self.most_items(quantity)
+    select("items.*, sum(invoice_items.quantity) AS count")
+      .joins(:invoice_items)
+      .group(:id)
+      .order("count DESC")
       .limit(quantity.to_i)
   end
 
@@ -20,5 +28,6 @@ class Item < ApplicationRecord
       .limit(1)
       .first
   end
+
 
 end

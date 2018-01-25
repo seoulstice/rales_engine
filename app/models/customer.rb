@@ -3,9 +3,14 @@ class Customer < ApplicationRecord
   has_many :merchants, through: :invoices
 
   def self.customers_with_pending_invoices(merchant_id)
-    joins(:merchants, invoices: [:transactions])
-      .merge(Transaction.unsuccessful)
-      .where("merchants.id = #{merchant_id}")
+    find_by_sql("SELECT c.* FROM customers c
+                JOIN invoices i ON c.id = i.customer_id
+                JOIN transactions t ON t.invoice_id = i.id
+                WHERE i.merchant_id = #{merchant_id}
+                EXCEPT SELECT c.* FROM customers c
+                JOIN invoices i ON c.id = i.customer_id
+                JOIN transactions t ON t.invoice_id = i.id
+                WHERE i.merchant_id = #{merchant_id} AND t.result = 'success'")
   end
 
   def self.favorite_customer(merchant_id)

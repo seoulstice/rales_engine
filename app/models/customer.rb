@@ -1,6 +1,7 @@
 class Customer < ApplicationRecord
   has_many :invoices
   has_many :merchants, through: :invoices
+  has_many :transactions, through: :invoices
 
   def self.customers_with_pending_invoices(merchant_id)
     find_by_sql("SELECT c.* FROM customers c

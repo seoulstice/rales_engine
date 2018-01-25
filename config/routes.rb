@@ -9,6 +9,12 @@ Rails.application.routes.draw do
           get '/:id/revenue' => :show
           get '/revenue' => :index
         end
+        controller :items do
+          get '/:id/items' => :show
+        end
+        controller :invoices do
+          get '/:id/invoices' => :show
+        end
         controller :customers_with_pending_invoices do
           get '/:id/customers_with_pending_invoices' => :show
         end
@@ -32,6 +38,9 @@ Rails.application.routes.draw do
       end
 
       namespace :transactions do
+        controller :invoices do
+          get '/:id/invoice' => :show
+        end
         controller :search do
           get '/find' => :show
           get '/find_all' => :index
@@ -51,6 +60,12 @@ Rails.application.routes.draw do
         end
         controller :favorite_merchant do
           get '/:id/favorite_merchant' => :show
+        end
+        controller :invoices do
+          get '/:id/invoices' => :show
+        end
+        controller :transactions do
+          get '/:id/transactions' => :show
         end
       end
 

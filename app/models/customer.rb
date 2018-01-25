@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   has_many :merchants, through: :invoices
 
   def self.customers_with_pending_invoices(merchant_id)
-    joins(:merchants, :transactions)
+    joins(:merchants, invoices: [:transactions])
       .merge(Transaction.unsuccessful)
       .where("merchants.id = #{merchant_id}")
   end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
         controller :revenue do
           get '/:id/revenue' => :show
+          get '/revenue' => :index
         end
         controller :customers_with_pending_invoices do
           get '/:id/customers_with_pending_invoices' => :show

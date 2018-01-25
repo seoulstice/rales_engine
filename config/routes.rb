@@ -72,6 +72,9 @@ Rails.application.routes.draw do
         controller :best_day do
           get '/:id/best_day' => :show
         end
+        controller :most_items do
+          get '/most_items' => :index
+        end
       end
       resources :items, only: [:index, :show]
 

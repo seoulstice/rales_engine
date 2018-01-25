@@ -69,6 +69,9 @@ Rails.application.routes.draw do
         controller :most_revenue do
           get '/most_revenue' => :show
         end
+        controller :best_day do
+          get '/:id/best_day' => :show
+        end
       end
       resources :items, only: [:index, :show]
 
@@ -79,6 +82,9 @@ Rails.application.routes.draw do
         end
         controller :random do
           get '/random' => :show
+        end
+        controller :best_day do
+          get '/:id/best_day' => :show
         end
       end
       resources :invoices, only: [:index, :show]

@@ -7,13 +7,17 @@ describe "Merchants API" do
       @merchant2 = create(:merchant)
       @merchant3 = create(:merchant)
 
-      item1 = create(:item, merchant: @merchant1)
-      item2 = create(:item, merchant: @merchant2)
-      item3 = create(:item, merchant: @merchant3)
+      invoice1 = create(:invoice, merchant: @merchant1)
+      invoice2 = create(:invoice, merchant: @merchant2)
+      invoice3 = create(:invoice, merchant: @merchant3)
 
-      create(:invoice_item, item: item1, quantity: 50)
-      create(:invoice_item, item: item2, quantity: 25)
-      create(:invoice_item, item: item3, quantity: 5)
+      create(:invoice_item, invoice: invoice1, quantity: 50)
+      create(:invoice_item, invoice: invoice2, quantity: 25)
+      create(:invoice_item, invoice: invoice3, quantity: 5)
+
+      create(:transaction, invoice: invoice1, result: "success")
+      create(:transaction, invoice: invoice2, result: "success")
+      create(:transaction, invoice: invoice3, result: "success")
     end
 
     it "returns the top X merchants ranked by items sold" do
@@ -22,9 +26,8 @@ describe "Merchants API" do
       expect(response).to be_successful
 
       merchants = JSON.parse(response.body, symbolize_names: true)
-
       expect(merchants.count).to eq(2)
-      # binding.pry
+
       expect(merchants[0][:id]).to eq(@merchant1.id)
     end
   end

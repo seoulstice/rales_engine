@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe "Merchant Items API" do
+describe "Merchant Invoices API" do
   context "HTTP GET" do
-    it "returns items for a merchant" do
+    it "returns invoices for a merchant" do
       merchant1 = create(:merchant)
       merchant2 = create(:merchant)
       invoice1 = create(:invoice, merchant: merchant1)

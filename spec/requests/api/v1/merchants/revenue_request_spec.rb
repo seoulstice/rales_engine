@@ -29,7 +29,7 @@ describe "Merchants API" do
       create(:transaction, invoice: invoice1, result: "success")
       create(:transaction, invoice: invoice2, result: "failed")
 
-      get "/api/v1/merchants/#{merchant1.id}/revenue?date='2012-03-09 01:54:10 UTC'"
+      get "/api/v1/merchants/#{merchant1.id}/revenue?date=#{invoice1.created_at}"
 
       expect(response).to be_successful
 
@@ -49,6 +49,10 @@ describe "Merchants API" do
       create(:invoice_item, invoice: invoice2, quantity: 1, unit_price: 200)
       create(:invoice_item, invoice: invoice2, quantity: 1, unit_price: 300)
       create(:invoice_item, invoice: invoice3, quantity: 1, unit_price: 400)
+      create(:transaction, invoice: invoice1, result: 'success')
+      create(:transaction, invoice: invoice2, result: 'success')
+      create(:transaction, invoice: invoice3, result: 'success')
+
 
       get "/api/v1/merchants/revenue?date=#{invoice1.created_at}"
 
@@ -56,7 +60,7 @@ describe "Merchants API" do
 
       merchant = JSON.parse(response.body, symbolize_names: true)
 
-      expect(merchant[:revenue]).to eq("7.00")
+      expect(merchant[:total_revenue]).to eq("7.00")
     end
   end
 end

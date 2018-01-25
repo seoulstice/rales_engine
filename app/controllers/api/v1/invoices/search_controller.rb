@@ -5,7 +5,7 @@ class Api::V1::Invoices::SearchController < ApplicationController
   end
 
   def show
-    render json: Invoice.find_by(invoice_params)
+    render json: Invoice.where(invoice_params).order(:id).limit(1).first
   end
 
   private

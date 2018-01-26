@@ -138,6 +138,10 @@ Rails.application.routes.draw do
         controller :random do
           get '/random' => :show
         end
+        controller :item do
+          get '/:id/item' => :show
+        end
+
       end
       resources :invoice_items, only: [:index, :show]
 

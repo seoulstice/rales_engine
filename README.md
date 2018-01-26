@@ -58,7 +58,7 @@ bundle exec rake import_all
 
 ## Testing
 
-To begin testing, you will want start a server for the rales_engine directory. Open a terminal tab in the rales_engine directory and enter the following:
+To begin testing, you will want start a server for the rales_engine directory. Open a new terminal tab in the rales_engine directory and enter the following:
 
 ```
 rails s

@@ -34,7 +34,6 @@ Rails.application.routes.draw do
         controller :most_items do
           get 'most_items' => :show
         end
-
       end
 
       namespace :transactions do
@@ -90,6 +89,13 @@ Rails.application.routes.draw do
         controller :most_items do
           get '/most_items' => :index
         end
+        controller :invoice_items do
+          get '/:id/invoice_items' => :show
+        end
+        controller :merchant do
+          get '/:id/merchant' => :show
+        end
+
       end
       resources :items, only: [:index, :show]
 
@@ -132,6 +138,14 @@ Rails.application.routes.draw do
         controller :random do
           get '/random' => :show
         end
+        controller :item do
+          get '/:id/item' => :show
+        end
+        controller :invoice do
+          get '/:id/invoice' => :show
+        end
+
+
       end
       resources :invoice_items, only: [:index, :show]
 

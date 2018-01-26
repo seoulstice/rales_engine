@@ -84,17 +84,18 @@ With the rails server still running in the second tab, run the spec harness from
 bundle exec rake
 ```
 
-### API Endpoints
+## API Endpoints
 
 As mentioned previously, Rales Engine is an API that exists to expose business intelligence.  This allows a user to
 interact with various endpoints through the browser.  These include endpoints for the Merchants, Customers,
 Invoices, Items, Invoice Items and Transactions databases related to searches by attributes, by their associations,
 and endpoints related to business intelligence/analysis.  In order to reach these API endpoints, the user must type
 the following urls in the browser after starting the server using `rails s` in the Rales Engine directory.
+
 #### For the Merchants API endpoints
 ```
-http://localhost:3000/api/v1/merchants
-http://localhost:3000/api/v1/customers/:id
+'http://localhost:3000/api/v1/merchants'
+'http://localhost:3000/api/v1/customers/:id'
 'http://localhost:3000/api/v1/merchants/:id/revenue?date=x'
 'http://localhost:3000/api/v1/merchants/:id/items'
 'http://localhost:3000/api/v1/merchants/:id/invoices'
@@ -180,5 +181,3 @@ valid search parameters for items are id, name, description, unti_price, created
 [Young Jung](https://github.com/seoulstice)
 [Tyler Madsen](https://github.com/tylermarshal)
 
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details

@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 describe "Invoice-Customer Relationship API" do
   context "HTTP GET" do
     it "returns all customer associated to single Invoice" do

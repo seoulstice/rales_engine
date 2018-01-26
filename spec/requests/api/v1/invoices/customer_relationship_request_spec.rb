@@ -14,7 +14,7 @@ describe "Invoice-Customer Relationship API" do
 
       customer1 = JSON.parse(response.body, symbolize_names: true)
 
-      expect(customer1[:id]).to eq(1)
+      expect(customer1[:id]).to eq(customer.id)
       expect(customer1[:first_name]).to eq("John")
       expect(customer1[:last_name]).to eq("Doe")
     end

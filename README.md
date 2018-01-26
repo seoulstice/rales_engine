@@ -45,7 +45,7 @@ Merchant.all
 Customer.all
 Invoice.all
 Item.all
-Item_invoice.all
+InvoiceItem.all
 Transaction.all
 ```
 

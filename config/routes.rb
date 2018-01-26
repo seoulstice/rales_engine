@@ -34,7 +34,6 @@ Rails.application.routes.draw do
         controller :most_items do
           get 'most_items' => :show
         end
-
       end
 
       namespace :transactions do
@@ -89,6 +88,9 @@ Rails.application.routes.draw do
         end
         controller :most_items do
           get '/most_items' => :index
+        end
+        controller :invoice_items do
+          get '/:id/invoice_items' => :show
         end
       end
       resources :items, only: [:index, :show]

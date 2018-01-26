@@ -58,23 +58,36 @@ bundle exec rake import_all
 
 ## Testing
 
-To begin testing, you will want start a server for the rales_engine directory:
+To begin testing, you will want start a server for the rales_engine directory. Open a terminal tab in the rales_engine directory and enter the following:
 
 ```
 rails s
 ```
 
-Enter the following into the terminal to run the local test suite:
+In the first tab (not the one running the server), which should be in the rales_engine directory, enter the following to run the local test suite:
 
 ```
 bundle exec rspec
 ```
 
-To run the spec harness, move to the directory that rales_engine and rales_engine_spec_harness are both located in, then change to the rales_engine_spec_harness root directory:
+To run the spec harness, move to the directory that rales_engine and rales_engine_spec_harness are both located in (up one directory), then change to the rales_engine_spec_harness root directory and bundle:
 
 ```
 cd ..
 cd rales_engine_spec_harness
+bundle install
 ```
 
+With the rails server still running in the second tab, run the spec harness from the root directory:
+
+```
+bundle exec rake
+```
+
+## Creators
+(https://github.com/seoulstice "Young Jung")
+(https://github.com/tylermarshal "Tyler Madsen")
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 

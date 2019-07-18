@@ -1,6 +1,6 @@
 class Merchant < ApplicationRecord
   has_many :invoices
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :customers, through: :invoices
 
   def self.most_revenue(quantity)
